@@ -9,8 +9,8 @@
 </head>
 <body>
     <div>
-        <nav>
-            <div >
+        <nav class="flex justify-between items-center">
+            <div>
                 <a href="">
                     <img src="{{ Vite::asset('resourcers/images/logo.svg') }}" alt="">
                 </a>
