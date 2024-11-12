@@ -11,7 +11,7 @@ class Job extends Model
 {
     use HasFactory;
 
-    public function tag(string $name): void
+    public function tag(string $name)
     {
         $tag = Tag::firstOrCreate(['name' => strtolower($name)]);
         $this->tags()->attach($tag);
