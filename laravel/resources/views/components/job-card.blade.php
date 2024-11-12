@@ -1,15 +1,15 @@
-<div class="p-4 bg-white/5 rounded-xl flex flex-col text-center">
+<x-panel class="flex flex-col text-center">
     <div class="self-start text-sm">Entornos de Fomracion</div>
-    <div class="py-8 font-bold">
-        <h3>Video Producer</h3>
-        <p>Fill Time -From $60.000</p>
+    <div class="py-8">
+        <h3 class="group-hover:text-blue-800 text-xl font-bold transition-colors duration-300">Video Producer</h3>
+        <p class="text-sm mt-4">Fill Time -From $60.000</p>
     </div>
     <div class="flex justify-between items-center mt-auto">
         <div>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
-            <x-tag>Tag</x-tag>
+            <x-tag size="small">Back-end</x-tag>
+            <x-tag size="small">Front_end</x-tag>
+            <x-tag size="small">Full Stack</x-tag>
         </div>
-        <img src="http://placehold.it/42/42" alt="" class="rounded-xl">
+        <x-employer-logo :width='45' />
     </div>
-</div>
+</x-panel>
