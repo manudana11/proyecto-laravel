@@ -6,36 +6,33 @@
                 <input type="text" placeholder="Web Developer..." class="rounded-xl bg-white/10 border-white/10 px-5 py-4 w-full max-w-xl">
             </form>
         </section>
+
         <section class="pt-10">
             <x-section-headings>Featured Jobs</x-section-headings>
             <div class="grid lg:grid-cols-3 gap-8">
-                <x-job-card />
-                <x-job-card />
-                <x-job-card />
+                @foreach ($jobs as $job)
+                    <x-job-card :$job />
+                @endforeach
             </div>
         </section>
+
         <section>
             <x-section-headings>Tags</x-section-headings>
             <div class="mt-6 space-x-1">
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
-                <x-tag>Tag</x-tag>
+                @foreach($tags as $tag)
+                    <x-tag :tag="$tag" />
+                @endforeach
             </div>
         </section>
+
         <section>
             <x-section-headings>Find Jobs</x-section-headings>
             <div class="mt-6 space-y-6">
-                <x-job-card-wide />
-                <x-job-card-wide />
-                <x-job-card-wide />
+                @foreach ($jobs as $job)
+                    <x-job-card-wide :$job />
+                @endforeach
             </div>
         </section>
+
     </div>
 </x-layout>

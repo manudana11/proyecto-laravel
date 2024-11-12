@@ -1,3 +1,5 @@
+@props(['job'])
+
 <x-panel class="flex gap-x-6">
     <div>
         <x-employer-logo />
@@ -9,8 +11,8 @@
     </div>
 
     <div>
-        <x-tag>Tag</x-tag>
-        <x-tag>Tag</x-tag>
-        <x-tag>Tag</x-tag>
+        @foreach($job->tag as $tag)
+            <x-tag :$tag >Back-end</x-tag>
+        @endforeach
     </div>
 </x-panel>

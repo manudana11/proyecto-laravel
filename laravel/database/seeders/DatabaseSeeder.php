@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin PHP',
             'email' => 'PHP@laravel.com',
         ]);
+
+        $this->call(JobSeeder::class);
     }
 }
