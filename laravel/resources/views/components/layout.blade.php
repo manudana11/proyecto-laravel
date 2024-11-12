@@ -15,7 +15,7 @@
     <div class="px-10">
         <nav class="flex justify-between items-center py-4 border b border-white/10">
             <div>
-                <a href="">
+                <a href="/">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="Logo">
                 </a>
             </div>
@@ -25,9 +25,19 @@
                 <a href="">Salaries</a>
                 <a href="">Companies</a>
             </div>
+
+            @auth 
             <div>
                 <a href="">Post a Job</a>
             </div>
+            @endauth
+
+            @guest
+                <div class="space-x-6 font-bold">
+                <a href="">Sign Up</a>
+                <a href="">Log In</a>
+            </div>
+            @endguest
         </nav>
         <main class="mt-10">
             {{ $slot }}
