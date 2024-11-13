@@ -17,7 +17,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all()->groupBy('featured');
+        $jobs = Job::latest()->with(['employer', 'tags'])->get()->groupBy('featured');
         return view('jobs.index', [
             'featuredJobs' => $jobs[0],
             'jobs' => $jobs[1],
@@ -39,19 +39,22 @@ class JobController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->validate([
-            'employer_id' => ['required'],
             'title' => ['required'],
             'salary' => ['required'],
             'location' => ['required'],
             'schedule' => ['required', Rule::in(['Part Time', 'Full Time'])],
             'url' => ['required', 'active_url'],
             'tags' => ['nullable'],
-            'features' => ['required'],
         ]);
 
         $attributes['featured'] = $request->has('featured');
 
-        $job = Auth::user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+        $employer = Auth::user()->employer;
+        if (!$employer) {
+            return redirect()->back()->with('error', 'Employer not found.');
+        }
+
+        $job = $employer->jobs()->create(Arr::except($attributes, 'tags'));
 
         if ($attributes['tags'] ?? false) {
             foreach (explode(',', $attributes['tags']) as $tag) {
