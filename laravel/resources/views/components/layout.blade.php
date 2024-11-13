@@ -28,14 +28,14 @@
 
             @auth 
             <div>
-                <a href="">Post a Job</a>
+                <a href="/jobs/create">Post a Job</a>
             </div>
             @endauth
 
             @guest
                 <div class="space-x-6 font-bold">
-                <a href="">Sign Up</a>
-                <a href="">Log In</a>
+                <a href="/register">Sign Up</a>
+                <a href="/login">Log In</a>
             </div>
             @endguest
         </nav>
